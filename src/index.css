@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    
+    /* Sepedi-inspired wedding theme variables */
+    --sepedi-cream: #FFFDF5;
+    --sepedi-cream-dark: #F5F0E0;
+    --sepedi-yellow: #FFC107;
+    --sepedi-yellow-light: #FFD54F;
+    --sepedi-blue: #1976D2;
+    --sepedi-blue-light: #42A5F5;
+    --sepedi-pink: #E91E63;
+    --sepedi-pink-light: #F06292;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-sepedi-cream text-foreground font-serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Envelope styles - Sepedi themed */
+  .envelope {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    background: linear-gradient(135deg, var(--sepedi-pink-light) 0%, #F06292 100%);
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    perspective: 1000px;
+  }
+
+  .envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, var(--sepedi-pink-light) 0%, var(--sepedi-pink) 100%);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    z-index: 10;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .envelope-flap.open {
+    transform: rotateX(180deg);
+  }
+
+  .envelope-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--sepedi-pink) 0%, #E91E63 100%);
+    clip-path: polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .wax-seal {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--sepedi-yellow) 0%, var(--sepedi-yellow-light) 50%, var(--sepedi-yellow) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .wax-seal::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+  }
+
+  .wax-seal:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.8);
+  }
+
+  .wax-seal.pulse {
+    animation: pulse-seal 2s ease-in-out infinite;
+  }
+
+  .wax-seal.clicked {
+    animation: seal-click 0.3s ease forwards;
+  }
+
+  @keyframes seal-click {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(0.9); }
+    100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  }
+
+  /* Invitation card */
+  .invitation-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 280px;
+    background: var(--sepedi-cream);
+    border-radius: 16px;
+    padding: 30px 20px;
+    opacity: 0;
+    z-index: 5;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .invitation-card.show {
+    animation: card-slide 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+  }
+
+  @keyframes card-slide {
+    0% { 
+      transform: translate(-50%, -50%) scale(0.9); 
+      opacity: 0; 
+    }
+    100% { 
+      transform: translate(-50%, -140%) scale(1); 
+      opacity: 1; 
+    }
+  }
+
+  /* Decorative frame - Sepedi themed */
+  .decorative-frame {
+    position: relative;
+    padding: 30px 20px;
+    border: 3px solid var(--sepedi-pink);
+    border-radius: 30px 30px 30px 30px / 60px 60px 60px 60px;
+    background: var(--sepedi-cream);
+  }
+
+  .decorative-frame::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 2px solid var(--sepedi-yellow);
+    border-radius: 24px 24px 24px 24px / 54px 54px 54px 54px;
+    opacity: 0.7;
+  }
+
+  .decorative-frame::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid var(--sepedi-blue);
+    border-radius: 18px 18px 18px 18px / 48px 48px 48px 48px;
+    opacity: 0.5;
+  }
+
+  /* Countdown styles */
+  .countdown-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--sepedi-blue);
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sepedi-blue);
+    opacity: 0.7;
+  }
+
+  /* Calendar styles */
+  .calendar-day {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .calendar-day.highlighted {
+    background: var(--sepedi-pink);
+    color: white;
+  }
+
+  /* Social buttons - Sepedi themed */
+  .social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--sepedi-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .social-btn:hover {
+    transform: scale(1.1);
+    background: var(--sepedi-pink);
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+  }
+
+  /* Scroll animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .fade-in-up.visible {
+    animation: fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
