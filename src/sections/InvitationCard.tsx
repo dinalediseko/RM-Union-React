@@ -59,15 +59,15 @@ export default function InvitationCard() {
         {/* Date */}
         <div className="flex justify-center items-center gap-4">
           <div className="text-center">
-            <span className="block font-serif text-4xl text-sepedi-pink font-medium">26</span>
+            <span className="block font-serif text-2xl text-sepedi-pink font-medium">26</span>
           </div>
           <div className="w-px h-12 bg-sepedi-yellow" />
           <div className="text-center">
-            <span className="block font-serif text-4xl text-sepedi-pink font-medium">September</span>
+            <span className="block font-serif text-2xl text-sepedi-pink font-medium">September</span>
           </div>
           <div className="w-px h-12 bg-sepedi-yellow" />
           <div className="text-center">
-            <span className="block font-serif text-4xl text-sepedi-pink font-medium">2026</span>
+            <span className="block font-serif text-2xl text-sepedi-pink font-medium">2026</span>
           </div>
         </div>
 
