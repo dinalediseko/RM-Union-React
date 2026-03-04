@@ -25,6 +25,8 @@ export default function Calendar() {
   // Calendar data for June 2025
   const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
   const days = [
+    { day: 30 },
+    { day: 31 },
     { day: 1 },
     { day: 2 },
     { day: 3 },
