@@ -43,7 +43,7 @@ html {
 
 /* Sepedi pattern background styling */
 .sepedi-pattern-bg {
-  background-image: url('/sepedi-pattern.jpg');
+  background-image: url('/rm-union-bg.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
