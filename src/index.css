@@ -28,25 +28,28 @@
     --radius: 0.625rem;
     
     /* Main Palette */
-    --cream: #734f31;
-    --cream-dark: #c0aa8a;
-    --cream-light: #e1d3a9;
+    --cream: #F6F1E7;      /* main background */
+    --cream-dark: #E7DBC6;
+    --cream-light: #FAF6EF;
     --maroon: #5e2a25;
-    --orange: #a85530;    
+    --orange: #a85530;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    @apply bg-cream;
   }
+  
   html {
     scroll-behavior: smooth;
   }
-  body {
-    @apply bg-cream text-foreground font-serif;
-    overflow-x: hidden;
-  }
+ body {
+  background: var(--cream);
+  color: hsl(var(--foreground));
+  font-family: 'Cormorant Garamond', serif;
+}
 }
 
 @layer components {
@@ -57,9 +60,21 @@
     height: 220px;
     background: linear-gradient(135deg, var(--cream) 0%, #e1d3a9 100%);
     border-radius: 4px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+   box-shadow:
+  0 8px 20px rgba(0,0,0,0.15),
+  0 20px 40px rgba(0,0,0,0.12);
+
     perspective: 1000px;
   }
+
+  .envelope::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  opacity: 0.15;
+  pointer-events: none;
+}
 
   .envelope-flap {
     position: absolute;
@@ -84,7 +99,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--cream) 0%, #e1d3a9 100%);
+    background: linear-gradient(
+  145deg,
+  var(--cream-light) 0%,
+  var(--cream-dark) 60%,
+  #d9c9a8 100%
+);
     clip-path: polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%);
   }
 
@@ -95,14 +115,19 @@
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--maroon) 0%, var(--orange) 100%);
+    background: radial-gradient(
+  circle at 30% 30%,
+  #8a3a33,
+  var(--maroon) 40%,
+  #3f1a16
+);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 20;
-    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+    box-shadow: 0 8px 25px rgba(94, 42, 37, 0.35);
     transition: all 0.3s ease;
   }
 
@@ -116,7 +141,7 @@
 
   .wax-seal:hover {
     transform: translate(-50%, -50%) scale(1.05);
-    box-shadow: 0 0 30px rgba(255, 193, 7, 0.8);
+    box-shadow: 0 12px 30px rgba(94, 42, 37, 0.45);
   }
 
   .wax-seal.pulse {
@@ -167,7 +192,7 @@
   .decorative-frame {
     position: relative;
     padding: 30px 20px;
-    border: 3px solid var(--sepedi-pink);
+    border: 3px solid var(--maroon);
     border-radius: 30px 30px 30px 30px / 60px 60px 60px 60px;
     background: var(--cream);
   }
