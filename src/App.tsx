@@ -56,7 +56,7 @@ function App() {
             alt="Sepedi pattern"
              className="w-full h-full object-cover opacity-25"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-cream/70 via-transparent to-cream" />
+          <div className="absolute inset-0 bg-gradient-to-b from-cream/80 via-transparent to-cream" />
         </div>
 
         {/* Website Title */}
