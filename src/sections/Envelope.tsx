@@ -52,7 +52,7 @@ export default function Envelope({ isOpen, onOpen }: EnvelopeProps) {
             onKeyDown={(e) => e.key === 'Enter' && handleSealClick()}
             aria-label="Open invitation"
           >
-            <span className="text-sepedi-blue text-xs font-script font-bold tracking-wider uppercase">
+            <span className="text-maroon text-xs font-script font-bold tracking-wider uppercase">
               R&M
             </span>
           </div>
@@ -60,22 +60,22 @@ export default function Envelope({ isOpen, onOpen }: EnvelopeProps) {
 
         {/* Invitation Preview (visible when opening) */}
         <div 
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[160px] bg-sepedi-cream rounded-lg shadow-lg transition-all duration-700 ${
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[160px] bg-cream rounded-lg shadow-lg transition-all duration-700 ${
             isOpen ? 'opacity-100 -translate-y-[80%]' : 'opacity-0 translate-y-0'
           }`}
           style={{
             transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
           }}
         >
-          <div className="w-full h-full flex flex-col items-center justify-center p-4 border-2 border-sepedi-pink/30 rounded-lg">
-            <span className="font-script text-2xl text-sepedi-blue">Ramy</span>
-            <span className="font-script text-xl text-sepedi-pink">&</span>
-            <span className="font-script text-2xl text-sepedi-blue">Mamphara</span>
+          <div className="w-full h-full flex flex-col items-center justify-center p-4 border-2 border-marooon/30 rounded-lg">
+            <span className="font-script text-2xl text-cream-dark">Ramy</span>
+            <span className="font-script text-xl text-cream-dark">&</span>
+            <span className="font-script text-2xl text-cream-dark">Mamphara</span>
           </div>
         </div>
       </div>
 
-      {/* Decorative elements around envelope - Sepedi themed */}
+      {/* Decorative elements around envelope - Sepedi themed 
       <div className="absolute -left-16 top-1/2 -translate-y-1/2 opacity-40">
         <svg width="60" height="120" viewBox="0 0 60 120" fill="none">
           <path 
@@ -101,11 +101,12 @@ export default function Envelope({ isOpen, onOpen }: EnvelopeProps) {
           <circle cx="30" cy="100" r="4" fill="#E91E63" />
         </svg>
       </div>
+      */}
 
       {/* Hint text */}
       {!isOpen && (
-        <p className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-sepedi-blue/60 text-sm font-sans whitespace-nowrap">
-          Click the wax seal to open
+        <p className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-maroon/60 text-sm font-sans whitespace-nowrap">
+          Click the seal to open
         </p>
       )}
     </div>
