@@ -41,6 +41,7 @@
 .bg-orange { background-color: var(--orange); }
 .text-maroon { color: var(--maroon); }
 .text-orange { color: var(--orange); }
+.bg-cream { background-color: var(--cream); }
 
 @layer base {
   * {
