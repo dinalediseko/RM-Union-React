@@ -22,7 +22,7 @@ export default function Calendar() {
     return () => observer.disconnect()
   }, [])
 
-  // Calendar data for June 2025
+  // Calendar data for SEPT 2026
   const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
   const days = [
     { day: 30 },
@@ -65,10 +65,10 @@ export default function Calendar() {
       className="fade-in-up max-w-sm mx-auto px-4"
     >
       {/* Calendar Container */}
-      <div className="bg-sepedi-cream rounded-2xl p-6 shadow-card border-2 border-sepedi-yellow">
+      <div className="bg-cream rounded-2xl p-6 shadow-card border-2 border-orange">
         {/* Month and Year */}
         <div className="text-center mb-6">
-          <h3 className="font-serif text-2xl text-sepedi-blue font-medium">
+          <h3 className="font-serif text-2xl text-maroon font-medium">
             Sept 2026
           </h3>
         </div>
@@ -78,7 +78,7 @@ export default function Calendar() {
           {weekDays.map((day) => (
             <div 
               key={day} 
-              className="text-center text-xs font-sans text-sepedi-pink py-2 font-medium"
+              className="text-center text-xs font-sans text-orange py-2 font-medium"
             >
               {day}
             </div>
@@ -93,14 +93,14 @@ export default function Calendar() {
               className={`calendar-day ${
                 item.highlighted 
                   ? 'highlighted' 
-                  : 'text-sepedi-blue hover:bg-sepedi-yellow/20'
+                  : 'text-cream-dark hover:bg-maroon/20'
               }`}
             >
               {item.highlighted ? (
                 <div className="relative">
                   <span>{item.day}</span>
                   <svg 
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 text-white" 
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 text-maroon" 
                     fill="currentColor" 
                     viewBox="0 0 24 24"
                   >
@@ -114,7 +114,7 @@ export default function Calendar() {
           ))}
         </div>
 
-        {/* Decorative bottom - Sepedi themed */}
+        {/* Decorative bottom - Sepedi themed 
         <div className="flex justify-center mt-6">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-sepedi-pink" />
@@ -122,6 +122,7 @@ export default function Calendar() {
             <div className="w-3 h-3 rounded-full bg-sepedi-blue" />
           </div>
         </div>
+        */}
       </div>
     </section>
   )
