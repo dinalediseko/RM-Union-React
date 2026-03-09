@@ -52,7 +52,7 @@ export default function Envelope({ isOpen, onOpen }: EnvelopeProps) {
             onKeyDown={(e) => e.key === 'Enter' && handleSealClick()}
             aria-label="Open invitation"
           >
-            <span className="text-maroon text-xs font-script font-bold tracking-wider uppercase">
+            <span className="text-cream text-xs font-script font-bold tracking-wider uppercase">
               R&M
             </span>
           </div>
