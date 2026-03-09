@@ -56,12 +56,12 @@ function App() {
             alt="Sepedi pattern"
              className="w-full h-full object-cover opacity-25"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-sepedi-cream/70 via-transparent to-sepedi-cream" />
+          <div className="absolute inset-0 bg-gradient-to-b from-cream/70 via-transparent to-cream" />
         </div>
 
         {/* Website Title */}
         <div className="relative z-10 mb-12">
-          <h1 className="text-2xl md:text-3xl font-serif text-sepedi-blue tracking-[0.2em] uppercase">
+          <h1 className="text-2xl md:text-3xl font-serif text-maroon tracking-[0.2em] uppercase">
             Save the Date
           </h1>
         </div>
@@ -75,7 +75,7 @@ function App() {
         {isOpen && (
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
             <svg 
-              className="w-6 h-6 text-sepedi-pink" 
+              className="w-6 h-6 text-maroon" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
