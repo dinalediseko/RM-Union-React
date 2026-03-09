@@ -61,11 +61,11 @@ export default function InvitationCard() {
           <div className="text-center">
             <span className="block font-serif text-2xl text-maroon font-medium">26</span>
           </div>
-          <div className="w-px h-12 bg-maroon" />
+          <div className="w-px h-12 bg-cream-dark" />
           <div className="text-center">
             <span className="block font-serif text-2xl text-maroon font-medium">September</span>
           </div>
-          <div className="w-px h-12 bg-maroon" />
+          <div className="w-px h-12 bg-cream-dark" />
           <div className="text-center">
             <span className="block font-serif text-2xl text-maroon font-medium">2026</span>
           </div>
@@ -80,9 +80,9 @@ export default function InvitationCard() {
               strokeWidth="2" 
               fill="none"
             />
-            <circle cx="50" cy="12" r="5" fill="#5e2a25" />
-            <circle cx="25" cy="8" r="3" fill="#a85530" />
-            <circle cx="75" cy="16" r="3" fill="#5e2a25" />
+            <circle cx="50" cy="12" r="5" fill="#371e13" />
+            <circle cx="25" cy="8" r="3" fill="#734f31" />
+            <circle cx="75" cy="16" r="3" fill="#734f31" />
           </svg>
         </div>
       </div>
