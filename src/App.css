@@ -11,27 +11,27 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFFDF5;
+  background: #c0aa8a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1976D2;
+  background: #e1d3a9;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E91E63;
+  background: #734f31;
 }
 
 /* Selection color - Sepedi themed */
 ::selection {
   background: rgba(255, 193, 7, 0.3);
-  color: #1976D2;
+  color: #734f31;
 }
 
 /* Focus styles for accessibility */
 *:focus-visible {
-  outline: 2px solid #FFC107;
+  outline: 2px solid #734f31;
   outline-offset: 2px;
 }
 
