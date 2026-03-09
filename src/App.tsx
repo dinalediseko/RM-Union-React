@@ -52,9 +52,9 @@ function App() {
           className={`absolute inset-0 z-0 transition-transform duration-[1500ms] ${isOpen ? 'scale-110' : 'scale-100'}`}
         >
           <img 
-            src="/sepedi-pattern.jpg" 
-            alt="Sepedi Pattern" 
-            className="w-full h-full object-cover opacity-25"
+            src="/rm-union-bg.svg"
+            alt="Sepedi pattern"
+             className="w-full h-full object-cover opacity-25"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-sepedi-cream/70 via-transparent to-sepedi-cream" />
         </div>
