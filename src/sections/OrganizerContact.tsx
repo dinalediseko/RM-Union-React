@@ -62,7 +62,7 @@ END:VCALENDAR`
       className="fade-in-up max-w-md mx-auto px-4"
     >
       {/* Calendar Card */}
-      <div className="relative bg-sepedi-cream rounded-2xl p-8 shadow-card border-2 border-sepedi-pink overflow-hidden">
+      <div className="relative bg-cream rounded-2xl p-8 shadow-card border-2 border-maroon overflow-hidden">
         {/* Decorative envelope/calendar graphic 
         <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
           <svg viewBox="0 0 100 100" fill="none" className="text-sepedi-blue">
@@ -85,7 +85,7 @@ END:VCALENDAR`
         {/* Content */}
         <div className="relative z-10">
           {/* Text */}
-          <p className="text-sepedi-blue font-serif text-base leading-relaxed text-center mb-8">
+          <p className="text-cream-dark font-serif text-base leading-relaxed text-center mb-8">
             We can't wait to celebrate our big day! Save the date to your calendar so you don't miss a moment.
           </p>
 
@@ -96,7 +96,7 @@ END:VCALENDAR`
               href={googleCalendarUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="social-btn flex items-center gap-2 px-6 py-2 rounded-full border-2 border-sepedi-blue text-white hover:bg-sepedi-blue hover:text-sepedi-pink transition-all duration-300"
+              className="social-btn flex items-center gap-2 px-6 py-2 rounded-full bg-orange border-2 border-orange text-cream-light hover:bg-cream-light hover:text-orange transition-all duration-300"
               aria-label="Add to Google Calendar"
             >
               <CalendarPlus className="w-5 h-5" />
@@ -107,7 +107,7 @@ END:VCALENDAR`
             <a 
               href={icsUrl} 
               download="wedding-save-the-date.ics"
-              className="social-btn flex items-center gap-2 px-6 py-2 rounded-full border-2 border-sepedi-blue text-white hover:bg-sepedi-blue hover:text-sepedi-pink transition-all duration-300"
+              className="social-btn flex items-center gap-2 px-6 py-2 rounded-full bg-orange border-2 border-orange text-cream-light hover:bg-cream-light hover:text-orange transition-all duration-300"
               aria-label="Download Apple/Outlook Calendar Event"
             >
               <CalendarDays className="w-5 h-5" />
@@ -116,7 +116,7 @@ END:VCALENDAR`
           </div>
         </div>
 
-        {/* Decorative bottom flourish - Sepedi themed */}
+        {/* Decorative bottom flourish - Sepedi themed 
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
           <svg width="100" height="20" viewBox="0 0 100 20" fill="none">
             <path 
@@ -128,6 +128,7 @@ END:VCALENDAR`
             />
           </svg>
         </div>
+        */}
       </div>
     </section>
   )
