@@ -28,11 +28,13 @@
     --radius: 0.625rem;
     
     /* Main Palette */
-    --cream: #F6F1E7;
-    --cream-dark: #E7DBC6;
-    --cream-light: #FAF6EF;
-    --maroon: #5e2a25;
-    --orange: #a85530;
+  --cream: #F6F1E7;          /* light warm base */
+  --cream-dark: #D9C6A8;     /* darker cream for text/accents */
+  --cream-light: #FFF9F0;    /* highlights/backgrounds */
+  --maroon: #4A1E1A;         /* deeper, richer maroon for better contrast */
+  --orange: #C04F27;         /* warmer, stronger orange */
+  --accent: #8C3D31;         /* secondary accent for subtle decoration */
+  --foreground: #1F1F1F;     /* dark text for better readability */
   }
 }
 .color-maroon { color: var(--maroon); }
