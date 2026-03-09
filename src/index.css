@@ -27,15 +27,12 @@
     --ring: 240 5.9% 10%;
     --radius: 0.625rem;
     
-    /* Sepedi-inspired wedding theme variables */
-    --sepedi-cream: #FFFDF5;
-    --sepedi-cream-dark: #F5F0E0;
-    --sepedi-yellow: #FFC107;
-    --sepedi-yellow-light: #FFD54F;
-    --sepedi-blue: #1976D2;
-    --sepedi-blue-light: #42A5F5;
-    --sepedi-pink: #E91E63;
-    --sepedi-pink-light: #F06292;
+    /* Main Palette */
+    --cream: #734f31;
+    --cream-dark: #c0aa8a;
+    --cream-light: #e1d3a9;
+    --maroon: #5e2a25;
+    --orange: #a85530;    
   }
 }
 
