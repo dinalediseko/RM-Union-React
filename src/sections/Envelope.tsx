@@ -67,7 +67,7 @@ export default function Envelope({ isOpen, onOpen }: EnvelopeProps) {
             transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
           }}
         >
-          <div className="w-full h-full flex flex-col items-center justify-center p-4 border-2 border-marooon/30 rounded-lg">
+          <div className="w-full h-full flex flex-col items-center justify-center p-4 border-2 border-maroon/30 rounded-lg">
             <span className="font-script text-2xl text-cream-dark">Ramy</span>
             <span className="font-script text-xl text-cream-dark">&</span>
             <span className="font-script text-2xl text-cream-dark">Mamphara</span>
