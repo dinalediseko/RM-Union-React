@@ -28,13 +28,19 @@
     --radius: 0.625rem;
     
     /* Main Palette */
-    --cream: #F6F1E7;      /* main background */
+    --cream: #F6F1E7;
     --cream-dark: #E7DBC6;
     --cream-light: #FAF6EF;
     --maroon: #5e2a25;
-    --orange: #d06b3f;
+    --orange: #a85530;
   }
 }
+.color-maroon { color: var(--maroon); }
+.bg-maroon { background-color: var(--maroon); }
+.color-orange { color: var(--orange); }
+.bg-orange { background-color: var(--orange); }
+.text-maroon { color: var(--maroon); }
+.text-orange { color: var(--orange); }
 
 @layer base {
   * {
