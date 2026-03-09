@@ -44,7 +44,7 @@ function App() {
   }, [showContent])
 
   return (
-    <div className="min-h-screen bg-sepedi-cream">
+    <div className="min-h-screen bg-cream">
       {/* Hero Section with Envelope */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Sepedi Pattern Background */}
