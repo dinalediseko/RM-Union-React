@@ -52,7 +52,7 @@ export default function Envelope({ isOpen, onOpen }: EnvelopeProps) {
             onKeyDown={(e) => e.key === 'Enter' && handleSealClick()}
             aria-label="Open invitation"
           >
-            <span className="text-cream text-xs font-script font-bold tracking-wider uppercase">
+            <span className="text-cream-light text-xs font-script font-bold tracking-wider uppercase">
               R&M
             </span>
           </div>
@@ -60,7 +60,7 @@ export default function Envelope({ isOpen, onOpen }: EnvelopeProps) {
 
         {/* Invitation Preview (visible when opening) */}
         <div 
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[160px] bg-cream rounded-lg shadow-lg transition-all duration-700 ${
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[160px] bg-cream-light rounded-lg shadow-lg transition-all duration-700 ${
             isOpen ? 'opacity-100 -translate-y-[80%]' : 'opacity-0 translate-y-0'
           }`}
           style={{
