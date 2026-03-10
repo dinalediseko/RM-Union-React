@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import Envelope from './sections/Envelope'
 import InvitationCard from './sections/InvitationCard'
@@ -8,40 +8,34 @@ import OrganizerContact from './sections/OrganizerContact'
 import Countdown from './sections/Countdown'
 
 function App() {
-  const envelopeImg = "/rm-envelope.png"
-  const sealImg = "/rm-wax-seal.png"
+  const envelopeImg = '/rm-envelope.png'
+  const sealImg = '/rm-wax-seal.png'
+
   const [isOpen, setIsOpen] = useState(false)
   const [showContent, setShowContent] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
 
   const handleEnvelopeOpen = () => {
+    if (isOpen) return
+
     setIsOpen(true)
-    // Show content after envelope animation
-    setTimeout(() => {
+
+    window.setTimeout(() => {
       setShowContent(true)
-      // Scroll to content
-      setTimeout(() => {
-        contentRef.current?.scrollIntoView({ behavior: 'smooth' })
-      }, 500)
     }, 900)
   }
 
-  //Preload envelope and wax seal
   useEffect(() => {
-  const preloadImages = [envelopeImg, sealImg]
+    ;[envelopeImg, sealImg].forEach((src) => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [])
 
-  preloadImages.forEach((src) => {
-    const img = new Image()
-    img.src = src
-  })
-}, [])
-
-  // Intersection Observer for scroll animations
   useEffect(() => {
-  if (!showContent) return
+    if (!showContent) return
 
-  const observer = new IntersectionObserver(
-
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -59,79 +53,72 @@ function App() {
   }, [showContent])
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center p-4">
-     <div className="relative w-full max-w-[420px] aspect-[9/16] overflow-hidden bg-cream rounded-xl shadow-2xl">
-      {/* Hero Section with Envelope */}
-       <section className="relative h-full flex flex-col items-center justify-center overflow-hidden">
-        {/* Sepedi Pattern Background */}
-        <div 
-          className={`absolute inset-0 z-0 transition-transform duration-[1500ms] ${isOpen ? 'scale-110' : 'scale-100'}`}
-        >
-          <img 
-  src="/rm-union-bg.svg"
-  alt="Sepedi pattern"
-  className="w-full h-full object-cover opacity-25"
-/>
-          <div className="absolute inset-0 bg-gradient-to-b from-cream/80 via-transparent to-cream" />
-        </div>
-
-        {/* Website Title */}
-        <div className="relative z-10 mb-12">
-          <h1 className="text-2xl md:text-3xl font-serif text-maroon tracking-[0.2em] uppercase">
-            Save the Date
-          </h1>
-        </div>
-
-        {/* Envelope Container */}
-        <div className="relative z-10">
-          <Envelope isOpen={isOpen} onOpen={handleEnvelopeOpen} />
-        </div>
-
-        {/* Scroll indicator */}
-        {isOpen && (
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <svg 
-              className="w-6 h-6 text-maroon" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
+    <div className="app-shell">
+      <div className="invite-frame">
+        {!showContent ? (
+          <section className="hero-screen">
+            <div
+              className={`hero-bg ${isOpen ? 'hero-bg-open' : ''}`}
+              aria-hidden="true"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+              <img
+                src="/rm-union-bg.svg"
+                alt=""
+                className="hero-bg-image"
+              />
+              <div className="hero-bg-overlay" />
+            </div>
+
+            <div className="hero-title-wrap">
+              <h1 className="hero-title">Save the Date</h1>
+            </div>
+
+            <div className="hero-envelope-wrap">
+              <Envelope isOpen={isOpen} onOpen={handleEnvelopeOpen} />
+            </div>
+
+            {isOpen && (
+              <div className="hero-scroll-indicator" aria-hidden="true">
+                <svg
+                  className="hero-scroll-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
+                </svg>
+              </div>
+            )}
+          </section>
+        ) : (
+          <div ref={contentRef} className="invite-content invite-scroll">
+            <section className="content-section">
+              <InvitationCard />
+            </section>
+
+            <section className="content-section">
+              <WelcomeMessage />
+            </section>
+
+            <section className="content-section">
+              <Calendar />
+            </section>
+
+            <section className="content-section">
+              <Countdown />
+            </section>
+
+            <section className="content-section content-section-last">
+              <OrganizerContact />
+            </section>
           </div>
         )}
-      </section>
-
-      {/* Main Content */}
-      {showContent && (
-        <div ref={contentRef} className="relative z-10">
-          {/* Invitation Card Section */}
-          <section className="py-16 px-4">
-            <InvitationCard />
-          </section>
-
-          {/* Welcome Message Section */}
-          <section className="py-16 px-4">
-            <WelcomeMessage />
-          </section>
-
-          {/* Calendar Section */}
-          <section className="py-16 px-4">
-            <Calendar />
-          </section>
-
-          {/* Countdown Section */}
-          <section className="py-16 px-4 pb-24">
-            <Countdown />
-          </section>
-
-          {/* Organizer Contact Section */}
-          <section className="py-16 px-4">
-            <OrganizerContact />
-          </section>
-        </div>
-      )}
-    </div>
+      </div>
     </div>
   )
 }
