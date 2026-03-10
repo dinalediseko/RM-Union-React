@@ -59,9 +59,10 @@ function App() {
   }, [showContent])
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center p-4">
+     <div className="relative w-full max-w-[420px] aspect-[9/16] overflow-hidden bg-cream rounded-xl shadow-2xl">
       {/* Hero Section with Envelope */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+       <section className="relative h-full flex flex-col items-center justify-center overflow-hidden">
         {/* Sepedi Pattern Background */}
         <div 
           className={`absolute inset-0 z-0 transition-transform duration-[1500ms] ${isOpen ? 'scale-110' : 'scale-100'}`}
@@ -130,6 +131,7 @@ function App() {
           </section>
         </div>
       )}
+    </div>
     </div>
   )
 }
