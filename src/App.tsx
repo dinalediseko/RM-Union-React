@@ -8,6 +8,8 @@ import OrganizerContact from './sections/OrganizerContact'
 import Countdown from './sections/Countdown'
 
 function App() {
+  const envelopeImg = "/rm-envelope.png"
+  const sealImg = "/rm-wax-seal.png"
   const [isOpen, setIsOpen] = useState(false)
   const [showContent, setShowContent] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -21,12 +23,25 @@ function App() {
       setTimeout(() => {
         contentRef.current?.scrollIntoView({ behavior: 'smooth' })
       }, 500)
-    }, 1200)
+    }, 900)
   }
+
+  //Preload envelope and wax seal
+  useEffect(() => {
+  const preloadImages = [envelopeImg, sealImg]
+
+  preloadImages.forEach((src) => {
+    const img = new Image()
+    img.src = src
+  })
+}, [])
 
   // Intersection Observer for scroll animations
   useEffect(() => {
-    const observer = new IntersectionObserver(
+  if (!showContent) return
+
+  const observer = new IntersectionObserver(
+
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -52,10 +67,10 @@ function App() {
           className={`absolute inset-0 z-0 transition-transform duration-[1500ms] ${isOpen ? 'scale-110' : 'scale-100'}`}
         >
           <img 
-            src="/rm-union-bg.svg"
-            alt="Sepedi pattern"
-             className="w-full h-full object-cover opacity-25"
-          />
+  src="/rm-union-bg.svg"
+  alt="Sepedi pattern"
+  className="w-full h-full object-cover opacity-25"
+/>
           <div className="absolute inset-0 bg-gradient-to-b from-cream/80 via-transparent to-cream" />
         </div>
 
