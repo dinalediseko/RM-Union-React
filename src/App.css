@@ -1,52 +1,201 @@
-/* App-specific styles - Sepedi Theme */
+/* App shell */
+.app-shell {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
 
-/* Smooth scrolling for the entire page */
-html {
+/* Mobile-first invitation frame */
+.invite-frame {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--cream);
+  border-radius: 16px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35),
+    0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* Hero */
+.hero-screen {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: transform 1.5s ease;
+}
+
+.hero-bg-open {
+  transform: scale(1.08);
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 241, 231, 0.85),
+    rgba(246, 241, 231, 0.2),
+    rgba(246, 241, 231, 1)
+  );
+}
+
+.hero-title-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.hero-title {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+
+.hero-envelope-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce-soft 1.8s infinite;
+}
+
+.hero-scroll-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--maroon);
+}
+
+/* Invite content */
+.invite-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  overflow-y: auto;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  background: var(--cream);
+}
+
+.invite-scroll {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar - Sepedi themed */
-::-webkit-scrollbar {
-  width: 8px;
+.content-section {
+  padding: 3rem 1.25rem;
 }
 
-::-webkit-scrollbar-track {
-  background: #c0aa8a;
+.content-section-last {
+  padding-bottom: 5rem;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #e1d3a9;
-  border-radius: 6px;
+/* Image-based envelope */
+.image-envelope-wrapper {
+  position: relative;
+  width: min(84vw, 320px);
+  max-width: 320px;
+  transition: transform 0.6s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #734f31;
+.image-envelope-wrapper.zoom {
+  transform: scale(1.05);
 }
 
-/* Selection color - Sepedi themed */
-::selection {
-  background: rgba(94, 42, 37, 0.2);
-  color: #5e2a25;
+.image-envelope {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-/* Focus styles for accessibility */
-*:focus-visible {
-  outline: 2px solid #734f31;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* Prevent text selection on interactive elements */
-.wax-seal {
+.image-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42%;
+  max-width: 130px;
+  transform: translate(-50%, -50%);
   cursor: pointer;
+  transition: transform 0.55s ease, opacity 0.4s ease;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.28));
   user-select: none;
   -webkit-user-select: none;
 }
 
-/* Sepedi pattern background styling */
-.sepedi-pattern-bg {
-  background-image: url('/rm-union-bg.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.image-seal:hover {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.image-seal.rise {
+  transform: translate(-50%, calc(-50% - 24px)) scale(1.06);
+}
+
+/* Animation */
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+/* Desktop polish */
+@media (min-width: 768px) {
+  .app-shell {
+    padding: 24px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .content-section {
+    padding: 3.5rem 1.5rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg,
+  .image-envelope-wrapper,
+  .image-seal,
+  .hero-scroll-indicator {
+    animation: none !important;
+    transition: none !important;
+  }
 }
