@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 25 18% 27%;
+    --card: 36 22% 87%;
+    --card-foreground: 25 18% 27%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 25 18% 27%;
+    --primary: 25 18% 27%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 36 22% 87%;
+    --secondary-foreground: 25 18% 27%;
+    --muted: 36 22% 87%;
+    --muted-foreground: 20 8% 60%;
+    --accent: 36 22% 87%;
+    --accent-foreground: 25 18% 27%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 14% 75%;
+    --input: 30 14% 75%;
+    --ring: 25 18% 27%;
+    --radius: 0.625rem;
+  }
+
+  body {
+    @apply bg-wedding-cream text-wedding-text antialiased;
+    font-family: 'Playfair Display', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Custom scrollbar for a polished feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf8f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dfdacf;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3968d;
+}
